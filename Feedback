@@ -1,0 +1,40 @@
+#include<stdio.h>
+int main()
+{
+char ch;
+FILE*fp;
+fp=fopen("feedback.txt","w");
+if(fp==NULL)
+{
+printf("file opening failed\n");
+return 0;
+}
+fprintf(fp,"feedback about the c program\n");
+fprintf(fp,"1.>C is little hard to learn\n");
+fprintf(fp,"2.>C is the fundamental to learn any programing language\n");
+fprintf(fp,"3.>C programing language is very useful\n");
+fprintf(fp,"4.>C is helpful to improve logic sense\n");
+fclose(fp);
+fp=fopen("feedback.txt","a");
+if(fp==NULL)
+{
+printf("file opening is failed\n");
+return 0;
+}
+fprintf(fp,"feedback about the C-sir");
+fprintf(fp,"1.>C sir is very supportive\n");
+fprintf(fp,"2.>C sir explains in  a funny way\n");
+fclose(fp);
+fp=fopen("feedback.txt","r");
+if(fp==NULL)
+{
+printf("file opening is failed\n");
+return 0;
+}
+while((ch=fgetc(fp))!=EOF)
+{
+printf("%c",ch);
+}
+fclose(fp);
+return 0;
+}
